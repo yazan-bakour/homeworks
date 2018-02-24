@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html leng="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Longest Substring</title>
+</head>
+<body>
+    <script>
+        function test (string) {
+            //Createing empty arrays as beginning
+            longstSofar= [];
+            tmp= [];
+            //lopping around the object function length
+            for(x=0;x<string.length; x++) {
+                // Checking whither the index function object less then one
+                if (tmp.indexOf(string[x]) == -1) {
+                    tmp.push(string[x]);
+                    // Checking if array length bigger than the other array length
+                } else if(tmp.length >= longstSofar.length){
+                    longstSofar = tmp;
+                    tmp = tmp.slice(tmp.indexOf(string[x]));
+                }
+            }
+            console.log(longstSofar.join(''));
+        }
+
+        test('abcabcbb');
+        test('bbbbb');
+        test('pwwkew');
+    </script>
+</body>
+</html>
